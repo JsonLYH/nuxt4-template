@@ -165,6 +165,7 @@ export interface IHttpOptions {
   params?: any;
   data?: any;
   options?: any;
+  cacheKey?: string;
 }
 
 export interface IApiResponse<T extends any> {

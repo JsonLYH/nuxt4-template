@@ -23,19 +23,19 @@ function getAuthorization() {
 
 //基于useFetch
 async function http<T = any>(options: IHttpOptions): Promise<IApiResponse<T>> {
-  const { url, method, params, data, options: config = {} } = options;
+  const { url, method, params, data, cacheKey = '' } = options;
   const { $toast } = useNuxtApp();
-
+  let config = {};
   const token = getAuthorization();
-  config &&
-    Object.assign(config, {
-      headers: {
-        Authorization: token,
-      },
-    });
+  Object.assign(config, {
+    headers: {
+      Authorization: token,
+    },
+  });
 
   const { data: result }: any = await useFetch(baseURL + url, {
     method: method,
+    key: cacheKey,
     onRequest: ({ options }) => {
       options.body = data;
       options.query = params;
@@ -78,22 +78,20 @@ async function http<T = any>(options: IHttpOptions): Promise<IApiResponse<T>> {
       throw createError({ statusCode: response.status, statusMessage: response.statusText });
     },
   });
-
   return result.value;
 }
 
 //基于$fetch
 async function $http<T = any>(options: IHttpOptions): Promise<IApiResponse<T>> {
-  const { url, method, params, data, options: config = {} } = options;
+  const { url, method, params, data } = options;
   const { $toast } = useNuxtApp();
-
+  let config = {};
   const token = getAuthorization();
-  config &&
-    Object.assign(config, {
-      headers: {
-        Authorization: token,
-      },
-    });
+  Object.assign(config, {
+    headers: {
+      Authorization: token,
+    },
+  });
 
   const res = await $fetch(baseURL + url, {
     method: method,
