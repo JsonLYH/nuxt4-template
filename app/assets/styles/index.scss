@@ -1,2 +1,3 @@
+// as * 表示取消作用域别名，因为默认通过@use引入的变量，会拿文件名作为其作用域名称
 @use "_variables" as *;
 @use "themes" as *;

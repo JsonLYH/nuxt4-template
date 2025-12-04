@@ -14,6 +14,11 @@ export default defineNuxtConfig({
   elementPlus:{
     icon:"ElIcon"
   },
+  /**
+   * @/assets/styles/index.scss
+   * @use引入的sass变量，只在局部有作用
+   * @use引入的css变量，在全局有作用
+   */
   css:['@unocss/reset/tailwind.css',"@/assets/styles/index.scss"],
   build: {
     transpile: [],
@@ -22,7 +27,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          // 全局引入scss变量
+          // 全局引入scss变量(全局都可使用其sass变量)
           additionalData: '@use "~/assets/styles/_variables.scss" as *;',
         },
       },
