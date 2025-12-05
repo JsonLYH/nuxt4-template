@@ -91,7 +91,7 @@ export default defineNuxtPlugin(() => {
 ![img_1.png](img_1.png)
 ## 动画类型说明
 ```javascript
-淡入淡出类：fade-up、fade-down、fade-left、fade-right等
+淡入淡出类：fade、fade-up、fade-down、fade-left、fade-right等
 翻转类：flip-up、flip-down、flip-left、flip-right
 滑动类：slide-up、slide-down、slide-left、slide-right
 缩放类：zoom-in、zoom-in-up、zoom-in-down、zoom-out等
