@@ -96,6 +96,9 @@ export default defineNuxtPlugin(() => {
 滑动类：slide-up、slide-down、slide-left、slide-right
 缩放类：zoom-in、zoom-in-up、zoom-in-down、zoom-out等
 ```
+## 注意事项
+### 1.开发环境可能出现以下警告，功能正常，可以不用理会，也不影响正常打包，正常环境不会有警告
+![img_3.png](img_3.png)
 # 执行时机注意事项
 > 1.在 script setup 中的代码，会在client、server都执行一次\
 > 2.client、server都执行的情况下，要操作localStorage时，使用useCookie\
