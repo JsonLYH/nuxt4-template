@@ -37,6 +37,11 @@
 </template>
 
 ```
+# 项目版本升级
+```javascript
+npx nuxt upgrade --dedupe
+```
+![img_2.png](img_2.png)
 # 整合AOS动画库
 ## 参考博文
 链接:https://blog.csdn.net/gitblog_01118/article/details/154934278
