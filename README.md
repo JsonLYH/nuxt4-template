@@ -226,6 +226,20 @@ export default defineNuxtPlugin(() => {
 # 开发环境Node版本
 ## node 22.18.0（最好是偶数版本）
 
+# nuxt generate命令说明
+## ssr设置为true
+![img_4.png](img_4.png)
+执行nuxt generate命令打包时，会请求后端接口生成静态html页面，具有SEO功能（只是打包此刻所获取的信息）
+![img_5.png](img_5.png)
+首次请求，返回的文档信息就是打包时获取的信息（不会实时更新，要更新需要重新打包）
+![img_9.png](img_9.png)
+可以看到，首次打开页面，都是获取的打包时请求后端接口获取到的静态内容，不会进行请求后端接口
+## ssr设置为false
+![img_6.png](img_6.png)
+执行nuxt generate命令打包时，不会请求后端接口，跟平时我们用vue写的单页面应用一模一样
+![img_7.png](img_7.png)
+可以看到返回的文档都是空白的，而且首次打开页面，会直接实时请求后端接口
+![img_8.png](img_8.png)
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
