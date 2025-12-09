@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <h1 class="text-center mt-100 text-3xl">Nuxt4-template</h1>
+  <h1 class="text-center mt-100">
+    <el-tag type="warning" size="large">Nuxt4-template</el-tag>
+  </h1>
 </template>
 
 <style scoped>

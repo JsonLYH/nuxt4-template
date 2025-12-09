@@ -4,7 +4,7 @@
 <!--<NuxtLayout name="layout-one">-->
 <!--<NuxtPage />-->
 <!--</NuxtLayout>-->
-<!--Loading组件导致控制台会有告警不用理会，生产不会有，也不影响功能正常使用-->
+<!--Loading组件导致控制台会有告警不用理会，生产不会有，也不影响功能正常使用,但是SEO会受影响-->
     <Loading :loading="loading" :enableLoading="enableLoading">
       <NuxtLayout>
         <NuxtPage />
