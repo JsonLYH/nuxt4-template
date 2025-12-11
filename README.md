@@ -309,9 +309,9 @@ const { data } = await useFetch('/api/item')
 const { data } = await useAsyncData('item', () => $fetch('/api/item'))
 ```
 ## 做法3.单独使用$fetch
+```javascript
 //在SSR过程中，数据会被提取两次(后端接口会被调用两次，除非只在client生命周期使用)，一次在服务器上，另一次在客户端上。
 const dataTwice = await $fetch('/api/item')
-```javascript
 ```
 
 # Nuxt Minimal Starter
