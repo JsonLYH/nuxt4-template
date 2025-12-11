@@ -23,6 +23,9 @@ function getAuthorization() {
 
 //基于useFetch
 async function http<T = any>(options: IHttpOptions): Promise<IApiResponse<T>> {
+  const { start,finish } = useLoadingIndicator({
+    duration:5000
+  })
   const { url, method, params, data, cacheKey = '' } = options;
   const { $toast } = useNuxtApp();
   let config = {};
@@ -37,12 +40,16 @@ async function http<T = any>(options: IHttpOptions): Promise<IApiResponse<T>> {
     method: method,
     key: cacheKey,
     onRequest: ({ options }) => {
+      start({
+        force:true
+      })
       options.body = data;
       options.query = params;
       options.timeout = 10000;
       Object.assign(options, config);
     },
     onResponse: async ({ response }) => {
+      finish()
       const res = response._data as IApiResponse<T>;
       const code = Number(res.code);
       if (!SUCCESS_CODES.includes(code)) {
@@ -68,11 +75,13 @@ async function http<T = any>(options: IHttpOptions): Promise<IApiResponse<T>> {
       }
     },
     onRequestError({ request, options, error }) {
+      finish()
       // 处理请求错误
       ElMessage.error(error.message || '请求失败');
       throw createError({ statusMessage: error.message });
     },
     onResponseError({ request, response, options }) {
+      finish()
       // 处理响应错误
       ElMessage.error(response.statusText || '请求失败');
       throw createError({ statusCode: response.status, statusMessage: response.statusText });
@@ -83,6 +92,9 @@ async function http<T = any>(options: IHttpOptions): Promise<IApiResponse<T>> {
 
 //基于$fetch
 async function $http<T = any>(options: IHttpOptions): Promise<IApiResponse<T>> {
+  const { start,finish } = useLoadingIndicator({
+    duration:5000
+  })
   const { url, method, params, data } = options;
   const { $toast } = useNuxtApp();
   let config = {};
@@ -96,12 +108,16 @@ async function $http<T = any>(options: IHttpOptions): Promise<IApiResponse<T>> {
   const res = await $fetch(baseURL + url, {
     method: method,
     onRequest: ({ options }) => {
+      start({
+        force:true
+      })
       options.body = data;
       options.query = params;
       options.timeout = 10000;
       Object.assign(options, config);
     },
     onResponse: async ({ response }) => {
+      finish()
       const res = response._data as IApiResponse<T>;
       const code = Number(res.code);
       if (!SUCCESS_CODES.includes(code)) {
@@ -129,10 +145,12 @@ async function $http<T = any>(options: IHttpOptions): Promise<IApiResponse<T>> {
       }
     },
     onRequestError: ({ request, options, error }) => {
+      finish()
       ElMessage.error(error.message || '请求失败');
       throw createError({ statusMessage: error.message });
     },
     onResponseError: ({ request, response, options }) => {
+      finish()
       ElMessage.error(response.statusText || '请求失败');
       throw createError({ statusCode: response.status, statusMessage: response.statusText });
     }
