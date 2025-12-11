@@ -297,6 +297,22 @@ export default defineNuxtPlugin(() => {
 <button>点击次数: 0</button>
 这个HTML并返回给客户端，而在客户端中vue会找到这个按钮并添加点击事件监听器。
 ```
+# 远端数据请求方式
+## 做法1.使用useFetch
+```javascript
+//useFetch的效果相当于useAsyncData+$fetch
+const { data } = await useFetch('/api/item')
+```
+## 做法2.使用useAsyncData+$fetch
+```javascript
+//在SSR期间，数据仅在服务器端获取并传输到客户端,也就是说不会造成重复请求
+const { data } = await useAsyncData('item', () => $fetch('/api/item'))
+```
+## 做法3.单独使用$fetch
+//在SSR过程中，数据会被提取两次(后端接口会被调用两次，除非只在client生命周期使用)，一次在服务器上，另一次在客户端上。
+const dataTwice = await $fetch('/api/item')
+```javascript
+```
 
 # Nuxt Minimal Starter
 
