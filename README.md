@@ -42,6 +42,8 @@
 npx nuxt upgrade --dedupe
 ```
 ![img_2.png](img_2.png)
+# 混合渲染
+官方链接：https://nuxt.com/docs/4.x/guide/best-practices/performance#hybrid-rendering
 # 加载进度条/loading显示 (推荐)
 ## 在 app.vue 或 app/layouts/ 使用<NuxtLoadingIndicator/>
 ```javascript
