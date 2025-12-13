@@ -76,6 +76,13 @@ npx nuxt upgrade --dedupe
 import { useLoadingIndicator } from 'nuxt/app'
 const { enableLoading, disableLoading } = useLoadingIndicator()
 ```
+# ISR增量渲染
+## 最好isr、swr（必须要配置，否则缓存不生效）一起配置，单位为秒
+![img_15.png](img_15.png)
+## 页面请求测试
+![img_13.png](img_13.png)
+![img_14.png](img_14.png)
+会发现，在60s缓存期间，前端一直请求，是不会请求后端接口的
 # 整合AOS动画库
 ## 参考博文
 链接:https://blog.csdn.net/gitblog_01118/article/details/154934278

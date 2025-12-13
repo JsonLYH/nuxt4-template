@@ -2,6 +2,10 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  routeRules: {
+    // 不配置isr、swr，默认前端每次请求，都是走后端接口进行获取最新数据
+    '/': { isr: 60,swr:60 },
+  },
   modules: [
     '@element-plus/nuxt',
     '@unocss/nuxt',
