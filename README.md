@@ -270,7 +270,7 @@ i18n:{
     </div>
 </template>
 <script setup lang="ts">
-const { locales, locale, setLocale } = useI18n()
+const { locales, locale, setLocale,t } = useI18n()
 // 切换语言示例
 function changeLang(){
     if(locale.value !='en'){
