@@ -444,6 +444,10 @@ const { data } = await useAsyncData('item', () => $fetch('/api/item'))
 const dataTwice = await $fetch('/api/item')
 ```
 
+# 最佳实践
+## SEO、元数据、视口设置
+官网案例：https://nuxtjs.org.cn/docs/4.x/getting-started/seo-meta
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
