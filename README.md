@@ -74,6 +74,17 @@ export default defineNuxtConfig({
   image: false,
 })
 ```
+## 9.可以直接在routeRules中，根据路由规则进行指定布局
+方便的管理符合同一路由规则的路由应用同一个布局文件\
+```javascript
+export default defineNuxtConfig({
+  routeRules: {
+    '/admin/**': { appLayout: 'admin' },
+    '/dashboard/**': { appLayout: 'dashboard' },
+    '/auth/**': { appLayout: 'minimal' }
+  }
+})
+```
 
 # 性能
 > 1.能使用composables就别使用plugin，因为plugin在水合阶段执行的（会阻塞服务端页面渲染），而composables在组件初始化阶段执行的 \
