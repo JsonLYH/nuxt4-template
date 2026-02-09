@@ -85,10 +85,6 @@ export default defineNuxtConfig({
   }
 })
 ```
-## 注意事项
-升级后，执行pnpm run dev有时会报以下的错，不过不影响，暂时可以忽略，等待官方修复下一版即可
-
-![img_21.png](img_21.png)
 
 # 性能
 > 1.能使用composables就别使用plugin，因为plugin在水合阶段执行的（会阻塞服务端页面渲染），而composables在组件初始化阶段执行的 \
@@ -128,6 +124,7 @@ export default defineNuxtConfig({
 ```
 # 项目版本升级
 ```javascript
+// 执行此命令前，记得先pnpm i安装依赖，否则可能会一直卡进度
 npx nuxt upgrade --dedupe
 ```
 ![img_2.png](img_2.png)
