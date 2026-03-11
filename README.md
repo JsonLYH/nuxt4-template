@@ -574,6 +574,12 @@ npm run build
 ## SEO、元数据、视口设置
 官网案例：https://nuxtjs.org.cn/docs/4.x/getting-started/seo-meta
 
+# 关于.env多环境配置说明
+![alt text](image.png)
+在开发环境，执行nuxt dev --dotenv 指定配置文件时会报错，此时可以在开发环境不指定配置文件，默认使用.env环境配置文件
+![alt text](image-1.png)
+
+再次执行pnpm dev即可
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
