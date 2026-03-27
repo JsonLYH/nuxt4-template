@@ -53,7 +53,7 @@ export default defineNuxtConfig({
    * @use引入的sass变量，只在局部有作用
    * @use引入的css变量，在全局有作用
    */
-  // 更新4.3.1版本后，无法使用包名进行引用，待官方回复，后期再修改
+  // 更新4.3.1版本后，无法使用包名进行引用，不过目前官方已修复了
   css:['@unocss/reset/tailwind.css',"@/assets/styles/index.scss"],
   build: {
     transpile: [],
