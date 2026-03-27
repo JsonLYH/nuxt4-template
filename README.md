@@ -23,11 +23,11 @@
 
 8.增加构建分析
 
-其他试验性特性，请移步 https://github.com/nuxt/nuxt/releases/tag/v4.4.0 查看
-
 ```
 nuxt build --profile
 ```
+
+其他试验性特性，请移步 https://github.com/nuxt/nuxt/releases/tag/v4.4.0 查看
 
 # Nuxt 4.2 -》Nuxt 4.3的改进
 
