@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data } = await useFetch("http://10.10.10.100:9777/api/v1/article/test")
-console.log("index.vue",data)
+console.log("index.vue", data)
 </script>
 
 <template>
@@ -11,6 +11,4 @@ console.log("index.vue",data)
   </h1>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
